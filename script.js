@@ -439,3 +439,26 @@ loadGame();
 updateUI();
 
 loadChallenges();
+function changeUsername() {
+  const input = document.getElementById("usernameInput");
+  const newName = input.value.trim();
+
+  if (!newName) {
+    notify("❌ Please enter a username!");
+    return;
+  }
+
+  if (newName.length < 3) {
+    notify("❌ Username must be at least 3 characters!");
+    return;
+  }
+
+  player.name = newName;
+
+  saveGame();
+  updateUI();
+
+  input.value = "";
+
+  notify(`👤 Username changed to ${newName}!`);
+}
