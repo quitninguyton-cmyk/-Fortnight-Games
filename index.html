@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Battle Royale Challenge Hub</title>
+
+  <title>BattleZone | Battle Royale Hub</title>
+
   <link rel="stylesheet" href="style.css">
 </head>
 
@@ -11,8 +13,9 @@
 
   <div class="background"></div>
 
-  <!-- NAVBAR -->
+  <!-- NAVIGATION -->
   <nav class="navbar">
+
     <div class="logo">
       ⚡ BATTLE<span>ZONE</span>
     </div>
@@ -22,55 +25,81 @@
       <button onclick="showSection('challenges')">🎯 Challenges</button>
       <button onclick="showSection('map')">🗺️ Map</button>
       <button onclick="showSection('shop')">🛒 Shop</button>
+      <button onclick="showSection('inventory')">🎒 Inventory</button>
       <button onclick="showSection('leaderboard')">🏆 Leaderboard</button>
     </div>
 
-    <div class="player-coins">
+    <div class="coins">
       🪙 <span id="coins">500</span>
     </div>
+
   </nav>
 
 
   <!-- HOME -->
-  <main id="home" class="section active">
+  <section id="home" class="section active">
 
-    <section class="hero">
-      <div class="hero-content">
+    <div class="hero">
 
-        <div class="badge">🔥 BATTLE ROYALE</div>
+      <div class="hero-text">
 
-        <h1>DROP IN.<br><span>COMPETE.</span><br>DOMINATE.</h1>
+        <div class="badge">
+          🔥 BATTLE ROYALE
+        </div>
+
+        <h1>
+          DROP IN.<br>
+          <span>COMPETE.</span><br>
+          DOMINATE.
+        </h1>
 
         <p>
-          Complete challenges, earn XP, unlock rewards,
-          and become the ultimate BattleZone champion.
+          Complete missions, earn XP, unlock rewards,
+          survive matches and become the ultimate BattleZone champion.
         </p>
 
         <button class="play-button" onclick="startMatch()">
-          ▶ PLAY NOW
+          ▶ PLAY MATCH
+        </button>
+
+        <button class="daily-button" onclick="claimDaily()">
+          🎁 DAILY REWARD
         </button>
 
       </div>
 
+
+      <!-- PLAYER CARD -->
       <div class="player-card">
-        <div class="avatar">👤</div>
 
-        <h2 id="playerName">PLAYER</h2>
+        <div class="avatar">
+          👤
+        </div>
 
-        <p>Level <span id="level">1</span></p>
+        <h2 id="playerName">
+          PLAYER
+        </h2>
+
+        <div class="level">
+          LEVEL <span id="level">1</span>
+        </div>
 
         <div class="xp-bar">
           <div id="xpFill"></div>
         </div>
 
         <p class="xp-text">
-          <span id="xp">0</span> / <span id="nextXP">100</span> XP
+          <span id="xp">0</span> /
+          <span id="nextXP">100</span> XP
         </p>
+
       </div>
-    </section>
+
+    </div>
 
 
-    <section class="stats">
+    <!-- STATS -->
+    <div class="stats">
 
       <div class="stat-card">
         <span>🏆</span>
@@ -91,198 +120,168 @@
       </div>
 
       <div class="stat-card">
-        <span>🪙</span>
-        <h3 id="totalCoins">500</h3>
-        <p>Coins</p>
+        <span>🎮</span>
+        <h3 id="matches">0</h3>
+        <p>Matches</p>
       </div>
 
-    </section>
+    </div>
 
-  </main>
+  </section>
 
 
   <!-- CHALLENGES -->
-  <main id="challenges" class="section">
+  <section id="challenges" class="section">
 
     <div class="page-header">
-      <div class="badge">🎯 DAILY MISSIONS</div>
-      <h1>CHALLENGES</h1>
-      <p>Complete missions to earn XP and coins.</p>
+
+      <div class="badge">
+        🎯 MISSIONS
+      </div>
+
+      <h1>
+        CHALLENGES
+      </h1>
+
+      <p>
+        Complete challenges to earn XP and coins.
+      </p>
+
     </div>
 
     <div id="challengeList" class="challenge-grid"></div>
 
-  </main>
+  </section>
 
 
   <!-- MAP -->
-  <main id="map" class="section">
+  <section id="map" class="section">
 
     <div class="page-header">
-      <div class="badge">🗺️ BATTLE MAP</div>
-      <h1>CHOOSE YOUR DROP</h1>
-      <p>Select a location to begin a challenge.</p>
-    </div>
 
-    <div class="map">
+      <div class="badge">
+        🗺️ BATTLE MAP
+      </div>
 
-      <button class="location location1" onclick="dropLocation('Frosty Peaks')">
-        🏔️
-        <strong>Frosty Peaks</strong>
-        <small>High Ground</small>
-      </button>
+      <h1>
+        CHOOSE YOUR DROP
+      </h1>
 
-      <button class="location location2" onclick="dropLocation('Mega City')">
-        🏙️
-        <strong>Mega City</strong>
-        <small>High Risk</small>
-      </button>
-
-      <button class="location location3" onclick="dropLocation('Sandy Shores')">
-        🏖️
-        <strong>Sandy Shores</strong>
-        <small>Loot Zone</small>
-      </button>
-
-      <button class="location location4" onclick="dropLocation('Shadow Castle')">
-        🏰
-        <strong>Shadow Castle</strong>
-        <small>Dangerous</small>
-      </button>
-
-      <button class="location location5" onclick="dropLocation('Lonely Woods')">
-        🌲
-        <strong>Lonely Woods</strong>
-        <small>Quiet Zone</small>
-      </button>
-
-      <button class="location location6" onclick="dropLocation('Battle Factory')">
-        🏭️
-        <strong>Battle Factory</strong>
-        <small>Loot Zone</small>
-      </button>
+      <p>
+        Pick a location and search for loot.
+      </p>
 
     </div>
 
-  </main>
+    <div id="mapContainer" class="map"></div>
+
+  </section>
 
 
   <!-- SHOP -->
-  <main id="shop" class="section">
+  <section id="shop" class="section">
 
     <div class="page-header">
-      <div class="badge">🛒 ITEM SHOP</div>
-      <h1>REWARDS</h1>
-      <p>Spend your coins on exclusive cosmetic rewards.</p>
-    </div>
 
-    <div class="shop-grid">
-
-      <div class="item-card">
-        <div class="item-image purple">🧑‍🚀</div>
-        <h2>Galaxy Warrior</h2>
-        <p>Legendary Outfit</p>
-        <button onclick="buyItem('Galaxy Warrior', 2000)">🪙 2,000</button>
+      <div class="badge">
+        🛒 ITEM SHOP
       </div>
 
-      <div class="item-card">
-        <div class="item-image blue">🤖</div>
-        <h2>Robo Knight</h2>
-        <p>Epic Outfit</p>
-        <button onclick="buyItem('Robo Knight', 1500)">🪙 1,500</button>
-      </div>
+      <h1>
+        REWARDS
+      </h1>
 
-      <div class="item-card">
-        <div class="item-image red">🔥</div>
-        <h2>Fire Pickaxe</h2>
-        <p>Rare Pickaxe</p>
-        <button onclick="buyItem('Fire Pickaxe', 1000)">🪙 1,000</button>
-      </div>
-
-      <div class="item-card">
-        <div class="item-image gold">⚡</div>
-        <h2>Lightning Glider</h2>
-        <p>Legendary Glider</p>
-        <button onclick="buyItem('Lightning Glider', 2500)">🪙 2,500</button>
-      </div>
+      <p>
+        Spend your coins on cosmetics.
+      </p>
 
     </div>
 
-  </main>
+    <div id="shopList" class="shop-grid"></div>
+
+  </section>
+
+
+  <!-- INVENTORY -->
+  <section id="inventory" class="section">
+
+    <div class="page-header">
+
+      <div class="badge">
+        🎒 COLLECTION
+      </div>
+
+      <h1>
+        INVENTORY
+      </h1>
+
+      <p>
+        Your unlocked cosmetics.
+      </p>
+
+    </div>
+
+    <div id="inventoryList" class="inventory-grid"></div>
+
+  </section>
 
 
   <!-- LEADERBOARD -->
-  <main id="leaderboard" class="section">
+  <section id="leaderboard" class="section">
 
     <div class="page-header">
-      <div class="badge">🏆 TOP PLAYERS</div>
-      <h1>LEADERBOARD</h1>
-      <p>Can you make it to the top?</p>
-    </div>
 
-    <div class="leaderboard">
-
-      <div class="leader first">
-        <span>🥇</span>
-        <strong>ShadowKing</strong>
-        <span>12,450 XP</span>
+      <div class="badge">
+        🏆 TOP PLAYERS
       </div>
 
-      <div class="leader second">
-        <span>🥈</span>
-        <strong>GalaxyPro</strong>
-        <span>10,820 XP</span>
-      </div>
+      <h1>
+        LEADERBOARD
+      </h1>
 
-      <div class="leader third">
-        <span>🥉</span>
-        <strong>StormRunner</strong>
-        <span>9,760 XP</span>
-      </div>
-
-      <div class="leader">
-        <span>4</span>
-        <strong>BattleBeast</strong>
-        <span>8,400 XP</span>
-      </div>
-
-      <div class="leader">
-        <span>5</span>
-        <strong>DarkKnight</strong>
-        <span>7,920 XP</span>
-      </div>
-
-      <div class="leader player-rank">
-        <span>YOU</span>
-        <strong id="leaderName">PLAYER</strong>
-        <span id="leaderXP">0 XP</span>
-      </div>
+      <p>
+        Climb the ranks and become number one.
+      </p>
 
     </div>
 
-  </main>
+    <div id="leaderboardList" class="leaderboard"></div>
+
+  </section>
 
 
-  <!-- DISCORD -->
+  <!-- NOTIFICATION -->
+  <div id="notification" class="notification"></div>
+
+
+  <!-- FOOTER -->
   <footer>
-    <h2>🎮 JOIN THE COMMUNITY</h2>
-    <p>Play, compete, chat, and join the community.</p>
 
-    <a href="https://discord.gg/Rb64dunDJ"
-       target="_blank"
-       class="discord-button">
+    <h2>
+      🎮 JOIN THE COMMUNITY
+    </h2>
+
+    <p>
+      Play, compete, chat and hang out with other players.
+    </p>
+
+    <a
+      href="https://discord.gg/Rb64dunDJ"
+      target="_blank"
+      class="discord-button"
+    >
       💬 JOIN DISCORD
     </a>
 
     <p class="copyright">
       BattleZone is a fan-made Battle Royale project.
     </p>
+
   </footer>
 
 
-  <!-- NOTIFICATION -->
-  <div id="notification" class="notification"></div>
-
+  <!-- SCRIPTS -->
+  <script src="data.js"></script>
   <script src="script.js"></script>
 
 </body>
